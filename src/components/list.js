@@ -1,6 +1,8 @@
 import React ,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { get_all_list_data } from '../actions';
+import { Link } from 'react-router-dom';
+
 
 class List extends Component{
     componentDidMount(){
@@ -13,9 +15,17 @@ class List extends Component{
             return <li key={item._id} className = 'collection-item' >{item.title}</li>
         });
         return (
-            <ul className ='collection'>
-                {listElements}
-            </ul>
+            <div>
+                <h1 className = 'center' >Redux To Do</h1>
+                <div className = 'row'>
+                    <div className = 'col s12 right-align'>
+                        <Link to='/add-item' className = 'btn' > Add Item </Link> 
+                    </div>
+                </div>
+                <ul className ='collection'>
+                    {listElements}
+                </ul>
+            </div>
         )
     }
 }
