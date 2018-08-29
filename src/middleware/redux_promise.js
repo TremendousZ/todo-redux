@@ -1,4 +1,4 @@
-export default store => next =>  async action => {
+export default store => next =>  async (action) => {
     //code goes here
     if(!action.payload || !action.payload.then){
         return next(action);
@@ -12,8 +12,9 @@ export default store => next =>  async action => {
         payload:resp,
     }
 
-store.dispatch(newAction);
+    store.dispatch(newAction);
 
+}
 
 
 
